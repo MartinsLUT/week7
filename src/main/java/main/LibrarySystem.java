@@ -1,10 +1,12 @@
 package main;
 
-import java.util.List;
+import java.util.ArrayList;
+
+
 
 public class LibrarySystem {
-    private List<Item> items;
-    private FileHandler fileHandler;
+    private static ArrayList<Item> items = new ArrayList<Item>();
+    private FileHandler fileHandler = new TextFileHandler();
 
     public void addItem(Item item) {
         items.add(item);
@@ -25,11 +27,12 @@ public class LibrarySystem {
         for (Item item : items) {
             System.out.println(item);
         }
+        System.out.println();
     }
     
     public void searchByTitle(String title) {
         for (Item item : items) {
-            if (item.getTitle().equals(title)) {
+            if (item.getTitle().toLowerCase().contains(title.toLowerCase())) {
                 System.out.println(item);
             }
         }
@@ -40,7 +43,8 @@ public class LibrarySystem {
     }
 
     public void loadFromFile(String filename) {
-        fileHandler.loadItems(filename);
+        ArrayList<Item> loadedItems = (ArrayList<Item>) fileHandler.loadItems(filename);
+        items.addAll(loadedItems);
     }
     
     public void displayMenu() {

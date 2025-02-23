@@ -6,6 +6,7 @@ public class Book extends Item {
     public Book(String id, String title, String author){
         super(id, title);
         this.author = author;
+        
     }
     
     public void setAuthor(String author){

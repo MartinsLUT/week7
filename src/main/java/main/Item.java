@@ -4,6 +4,7 @@ public abstract class Item {
     private String id;
     private String title;
 
+
     public Item(String id, String title) {
         this.id = id;
         this.title = title;

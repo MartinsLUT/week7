@@ -14,6 +14,7 @@ public class App {
         Scanner scanner = new Scanner(System.in);
         while (true) {
             LibrarySystem librarySystem = new LibrarySystem();
+
             librarySystem.displayMenu();
             String input = scanner.nextLine(); 
             int choice = Integer.parseInt(input);
@@ -40,7 +41,7 @@ public class App {
                     String dvdId = scanner.nextLine();
                     System.out.println("Enter DVD title: ");
                     String dvdTitle = scanner.nextLine();
-                    System.out.println("Enter DVD duration: ");
+                    System.out.println("Enter DVD duration (minutes) : ");
                     String dvdDuration = scanner.nextLine();
                     DVD dvd = new DVD(dvdId, dvdTitle, Integer.parseInt(dvdDuration));
                     librarySystem.addItem(dvd);
@@ -55,14 +56,14 @@ public class App {
                 case 4:
                     // List all items
                     librarySystem.listAllItems();
-                    System.out.println("\n");
+
                     break;
                 case 5:
                     // Search by title
                     System.out.println("Enter title to search: ");
                     String searchTitle = scanner.nextLine();
                     librarySystem.searchByTitle(searchTitle);
-                    System.out.println("\n");
+                    
                     break;
                 case 6:
                     // Save to file
